@@ -1,7 +1,10 @@
+'use client';
+import { motion } from 'framer-motion';
+
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-black text-white overflow-x-hidden">
-      {/* Glow Disk Backgrounds */}
+      {/* Glow Backgrounds */}
       <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-gradient-to-tr from-purple-500 via-pink-500 to-blue-500 rounded-full blur-3xl opacity-20 -z-10" />
       <div className="absolute -bottom-40 right-[-300px] w-[500px] h-[500px] bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-500 rounded-full blur-3xl opacity-20 -z-10" />
 
@@ -9,10 +12,10 @@ export default function Home() {
       <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
         <div className="text-2xl font-bold tracking-tight">Tera</div>
         <div className="hidden md:flex gap-6 text-gray-400">
-          <a href="#" className="hover:text-white">Product</a>
-          <a href="#" className="hover:text-white">Pricing</a>
-          <a href="#" className="hover:text-white">About</a>
-          <a href="#" className="hover:text-white">Contact</a>
+          <a href="#product" className="hover:text-white">Product</a>
+          <a href="#pricing" className="hover:text-white">Pricing</a>
+          <a href="#about" className="hover:text-white">About</a>
+          <a href="#contact" className="hover:text-white">Contact</a>
         </div>
         <a
           href="#demo"
@@ -24,14 +27,31 @@ export default function Home() {
 
       {/* Hero */}
       <section className="flex flex-col items-center text-center px-6 py-24 lg:py-36 max-w-4xl mx-auto">
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-transparent bg-clip-text">
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-transparent bg-clip-text"
+        >
           Automate FIE Reports with AI
-        </h1>
-        <p className="mt-6 text-lg text-gray-300 max-w-2xl">
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+          className="mt-6 text-lg text-gray-300 max-w-2xl"
+        >
           Tera helps Texas schools generate legally compliant FIE evaluations in hours — not days.
           Trusted by diagnosticians. Powered by AI.
-        </p>
-        <div className="mt-8 flex flex-col sm:flex-row gap-4">
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+          className="mt-8 flex flex-col sm:flex-row gap-4"
+        >
           <a
             href="#demo"
             className="bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 text-white font-semibold px-6 py-3 rounded-md shadow-lg hover:scale-105 transition"
@@ -44,10 +64,9 @@ export default function Home() {
           >
             Learn More
           </a>
-        </div>
+        </motion.div>
       </section>
 
-      {/* Sections (same as your original, reuse safely) */}
       {/* How It Works */}
       <section id="how" className="mt-32 max-w-6xl mx-auto text-center px-4">
         <h2 className="text-4xl font-bold mb-12">How Tera Works</h2>
@@ -68,7 +87,7 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section className="mt-32 max-w-6xl mx-auto text-center px-4">
+      <section id="product" className="mt-32 max-w-6xl mx-auto text-center px-4">
         <h2 className="text-4xl font-bold mb-12">Why Choose Tera?</h2>
         <div className="grid md:grid-cols-2 gap-16 text-left">
           <div>
@@ -83,7 +102,7 @@ export default function Home() {
       </section>
 
       {/* What is FIE */}
-      <section className="mt-32 max-w-3xl mx-auto text-center px-4">
+      <section id="about" className="mt-32 max-w-3xl mx-auto text-center px-4">
         <h2 className="text-4xl font-bold mb-8">What is an FIE?</h2>
         <p className="text-gray-400 text-lg leading-relaxed">
           A Full Individual and Initial Evaluation (FIE) is a federally mandated assessment for special education eligibility.
@@ -149,7 +168,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="mt-32 text-center text-sm text-gray-500 py-8">
+      <footer className="mt-32 text-center text-sm text-gray-500 py-8" id="contact">
         © 2025 Tera. All rights reserved.
       </footer>
     </main>
